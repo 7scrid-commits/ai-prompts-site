@@ -2,7 +2,8 @@ nav a{
 color:white;
 text-decoration:none;
 margin-left:20px;
-transition:.3s;
+transition:all .3s ease;
+position:relative;
 }
 
 nav a:hover{
@@ -10,9 +11,17 @@ color:#00ffff;
 text-shadow:0 0 10px #00ffff;
 }
 
-.orb{
+nav a::after{
+content:'';
 position:absolute;
-border-radius:50%;
-filter:blur(90px);
-opacity:.6;
+left:0;
+bottom:-5px;
+width:0;
+height:2px;
+background:#00ffff;
+transition:.3s;
+}
+
+nav a:hover::after{
+width:100%;
 }
