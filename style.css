@@ -1,191 +1,281 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
 
-<title>AIHub - Future of Artificial Intelligence</title>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family: 'Plus Jakarta Sans', sans-serif;
+}
 
-<meta name="description" content="Discover the best AI tools, prompts, templates and resources for creators, developers and entrepreneurs.">
+html{
+scroll-behavior:smooth;
+}
 
-<link rel="stylesheet" href="style.css">
+body{
+background:#050816;
+color:white;
+overflow-x:hidden;
+position:relative;
+}
 
-</head>
-<body>
+/* AI GRID BACKGROUND */
+body::before{
+content:'';
+position:fixed;
+inset:0;
+background-image:
+linear-gradient(rgba(255,255,255,.03) 1px, transparent 1px),
+linear-gradient(90deg, rgba(255,255,255,.03) 1px, transparent 1px);
+background-size:50px 50px;
+pointer-events:none;
+z-index:-2;
+}
 
-<header>
+/* NAVBAR */
+header{
+position:sticky;
+top:0;
+z-index:1000;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:20px 8%;
+background:rgba(5,8,22,.85);
+backdrop-filter:blur(16px);
+border-bottom:1px solid rgba(255,255,255,.08);
+}
 
-<div class="logo">
-AI<span>Hub</span>
-</div>
+.logo{
+font-size:30px;
+font-weight:800;
+letter-spacing:1px;
+text-shadow:0 0 20px #00ffff;
+/* Baris tambahan di bawah ini bikin logo & tulisan sejajar rapi */
+display: flex;
+align-items: center;
+gap: 12px; 
+}
 
-<nav>
-<a href="index.html">Home</a>
-<a href="ai-tools.html">AI Tools</a>
-<a href="prompts.html">Prompts</a>
-<a href="templates.html">Templates</a>
-</nav>
+.logo span{
+color:#00ffff;
+}
 
-</header>
+nav a{
+position:relative;
+margin-left:25px;
+text-decoration:none;
+color:white;
+transition:.3s;
+}
 
-<section class="hero">
+nav a:hover{
+color:#00ffff;
+text-shadow:0 0 10px #00ffff;
+}
 
-<div class="orb orb1"></div>
-<div class="orb orb2"></div>
+nav a::after{
+content:'';
+position:absolute;
+left:0;
+bottom:-6px;
+width:0;
+height:2px;
+background:#00ffff;
+transition:.3s;
+}
 
-<div class="hero-content">
+nav a:hover::after{
+width:100%;
+}
 
-<div class="badge">
-🚀 The Ultimate AI Resource Platform
-</div>
+/* HERO */
+.hero{
+min-height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+text-align:center;
+padding:40px;
+position:relative;
+overflow:hidden;
+}
 
-<h1>
-Unlock The Power Of
-<span class="gradient">Artificial Intelligence</span>
-</h1>
+.hero-content{
+max-width:950px;
+z-index:2;
+}
 
-<p>
-Explore cutting-edge AI tools, powerful prompts,
-ready-to-use templates and productivity resources
-trusted by creators around the world.
-</p>
+/* FLOATING ORBS */
+.orb{
+position:absolute;
+border-radius:50%;
+filter:blur(100px);
+opacity:.55;
+}
 
-<a href="ai-tools.html" class="btn">
-Explore AI Tools
-</a>
+.orb1{
+width:350px;
+height:350px;
+background:#00ffff;
+top:100px;
+left:-100px;
+animation:float 10s ease-in-out infinite;
+}
 
-</div>
+.orb2{
+width:400px;
+height:400px;
+background:#8b5cf6;
+right:-120px;
+top:220px;
+animation:float 12s ease-in-out infinite;
+}
 
-</section>
+@keyframes float{
+0%,100%{
+transform:translateY(0px);
+}
+50%{
+transform:translateY(-50px);
+}
+}
 
-<section class="section">
+.badge{
+display:inline-block;
+padding:10px 20px;
+background:rgba(255,255,255,.06);
+border:1px solid rgba(255,255,255,.08);
+border-radius:50px;
+margin-bottom:25px;
+font-size: 14px;
+letter-spacing: 0.5px;
+}
 
-<h2 class="section-title">
-🔥 Trending AI Tools
-</h2>
+.hero h1{
+font-size:78px;
+line-height:1.1;
+margin-bottom:25px;
+font-weight: 800;
+}
 
-<div class="grid">
+.gradient{
+background:linear-gradient(90deg,#00ffff,#8b5cf6);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
 
-<div class="card">
-<h3>🤖 ChatGPT</h3>
-<p>Create content, solve problems and boost productivity.</p>
-</div>
+.hero p{
+font-size:20px;
+line-height:1.8;
+opacity:.85;
+max-width:750px;
+margin:auto;
+}
 
-<div class="card">
-<h3>🧠 Claude</h3>
-<p>Advanced reasoning and long-form content generation.</p>
-</div>
+.btn{
+display:inline-block;
+margin-top:35px;
+padding:16px 38px;
+background:linear-gradient(90deg,#00ffff,#8b5cf6);
+border-radius:12px;
+color:white;
+font-weight:700;
+text-decoration:none;
+transition:.3s;
+box-shadow:0 0 25px rgba(0,255,255,.25);
+}
 
-<div class="card">
-<h3>⚡ Cursor</h3>
-<p>AI-powered coding assistant for developers.</p>
-</div>
+.btn:hover{
+transform:translateY(-5px);
+box-shadow:0 0 35px rgba(0,255,255,.45);
+}
 
-<div class="card">
-<h3>🎨 Midjourney</h3>
-<p>Generate stunning AI art and creative visuals.</p>
-</div>
+/* SECTIONS */
+.section{
+padding:100px 8%;
+}
 
-<div class="card">
-<h3>🔍 Perplexity</h3>
-<p>Research faster with AI-powered search.</p>
-</div>
+.section-title{
+font-size:48px;
+text-align:center;
+margin-bottom:50px;
+font-weight: 700;
+}
 
-<div class="card">
-<h3>🎬 Runway</h3>
-<p>Create videos with next-generation AI technology.</p>
-</div>
+/* CARDS */
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:25px;
+}
 
-</div>
+.card{
+background:rgba(255,255,255,.05);
+backdrop-filter:blur(14px);
+border:1px solid rgba(255,255,255,.08);
+padding:28px;
+border-radius:18px;
+transition:.35s;
+}
 
-</section>
+.card:hover{
+transform:translateY(-10px) scale(1.03);
+border-color:#00ffff;
+box-shadow:0 0 30px rgba(0,255,255,.25);
+}
 
-<section class="section">
+.card h3{
+font-size:22px;
+margin-bottom:12px;
+font-weight: 600;
+color: #fff;
+}
 
-<h2 class="section-title">
-📊 AIHub Statistics
-</h2>
+.card p{
+opacity:.8;
+line-height:1.7;
+font-size: 15px;
+}
 
-<div class="grid">
+/* FOOTER */
+footer{
+padding:40px;
+text-align:center;
+border-top:1px solid rgba(255,255,255,.08);
+background:rgba(255,255,255,.02);
+font-size: 14px;
+opacity: 0.8;
+}
 
-<div class="card">
-<h3>100+</h3>
-<p>AI Tools</p>
-</div>
+/* MOBILE RESPONSIVE */
+@media(max-width:768px){
+header{
+flex-direction:column;
+gap:15px;
+padding: 20px 4%;
+}
 
-<div class="card">
-<h3>500+</h3>
-<p>Premium Prompts</p>
-</div>
+nav{
+display:flex;
+flex-wrap:wrap;
+justify-content:center;
+gap: 10px;
+}
 
-<div class="card">
-<h3>20+</h3>
-<p>Templates</p>
-</div>
+nav a {
+margin-left: 10px;
+margin-right: 10px;
+}
 
-<div class="card">
-<h3>24/7</h3>
-<p>Updated Resources</p>
-</div>
+.hero h1{
+font-size:46px;
+}
 
-</div>
+.hero p{
+font-size:16px;
+}
 
-</section>
-
-<section class="section">
-
-<h2 class="section-title">
-💡 Why Choose AIHub?
-</h2>
-
-<div class="grid">
-
-<div class="card">
-<h3>⚡ Fast & Lightweight</h3>
-<p>Optimized for speed on desktop and mobile devices.</p>
-</div>
-
-<div class="card">
-<h3>🌍 Global Resources</h3>
-<p>Discover the latest AI tools used worldwide.</p>
-</div>
-
-<div class="card">
-<h3>🚀 Future Ready</h3>
-<p>Stay ahead with the newest AI innovations.</p>
-</div>
-
-</div>
-
-</section>
-
-<section class="section">
-
-<h2 class="section-title">
-Ready To Explore AI?
-</h2>
-
-<div style="text-align:center;">
-
-<p style="max-width:700px;margin:auto;">
-Start discovering the best AI tools, prompts and resources today.
-</p>
-
-<a href="ai-tools.html" class="btn">
-Get Started
-</a>
-
-</div>
-
-</section>
-
-<footer>
-
-<p>
-© 2026 AIHub. All Rights Reserved.
-</p>
-
-</footer>
-
-</body>
-</html>
+.section-title{
+font-size:34px;
+}
+}
